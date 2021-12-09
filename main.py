@@ -52,7 +52,7 @@ while cap.isOpened():
             alert("Perhatian...! ada "+clas +", silahkan menepi untuk memberi jalan...!")
             playsound.playsound('alert.mp3')
 
-        cv2.putText(frame, clas, (x, y), cv2.FONT_HERSHEY_DUPLEX, 2, 255)
+        cv2.putText(frame, clas, (x, y), cv2.FONT_HERSHEY_DUPLEX, 2, (0,0,0), 3)
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 255), 2)
 
     if cropped_image.any():
