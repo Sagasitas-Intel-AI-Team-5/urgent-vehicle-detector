@@ -5,6 +5,7 @@ buka file "jalanin" atau "jalanin.bat"
 ## versi susah:
 
 ```
-pip install -r requirements.txt
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 py main.py
 ```
