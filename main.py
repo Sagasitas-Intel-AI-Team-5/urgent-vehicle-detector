@@ -1,6 +1,5 @@
 # https://github.com/GauravSahani1417/OpenCV-Implementaion
 
-
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
@@ -12,7 +11,7 @@ import playsound
 
 done = False
 model_file = 'model.h5'
-size = 240
+size = 180
 # here is the animation
 
 model = load_model(model_file)
@@ -50,8 +49,8 @@ while cap.isOpened():
         cropped_image = frame[y:y+h, x:x+w]
         clas = get_label(cropped_image)
         if clas == "ambulance" or clas == 'damkar':
+            alert("Perhatian...! ada "+clas +", silahkan menepi untuk memberi jalan...!")
             playsound.playsound('alert.mp3')
-            alert("Perhatian...! ada "+clas +", sulahkan menepi untuk memberi jalan...!")
 
         cv2.putText(frame, clas, (x, y), cv2.FONT_HERSHEY_DUPLEX, 2, 255)
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 255), 2)
