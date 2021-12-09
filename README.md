@@ -1,10 +1,10 @@
-versi mudah:
+## versi mudah:
 
 buka file "jalanin" atau "jalanin.bat"
 
+## versi susah:
 
-
-versi susah:
-
-```pip install -r requirements.txt```
-```py main.py```
+```
+pip install -r requirements.txt
+py main.py
+```
