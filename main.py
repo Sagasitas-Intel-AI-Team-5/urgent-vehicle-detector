@@ -58,8 +58,8 @@ while cap.isOpened():
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 255), 2)
 
     if cropped_image.any():
-        cv2.namedWindow("window", cv2.WINDOW_GUI_EXPANDED)
-        cv2.setWindowProperty("window",cv2.WINDOW_GUI_EXPANDED,cv2.WINDOW_GUI_EXPANDED)
+        cv2.namedWindow("window", cv2.WND_PROP_FULLSCREEN)
+        cv2.setWindowProperty("window",cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
         cv2.imshow('window', frame)
         cv2.setWindowProperty('window', cv2.WND_PROP_TOPMOST, 1)
     if cv2.waitKey(1) == 13:  # 13 is the Enter Key
