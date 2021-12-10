@@ -48,15 +48,20 @@ while cap.isOpened():
      #    car = frame.crop(x, y, x+w, y+h)
         cropped_image = frame[y:y+h, x:x+w]
         clas = get_label(cropped_image)
-        if clas == "ambulance" or clas == 'damkar':
-            alert("Perhatian...! ada "+clas +", silahkan menepi untuk memberi jalan...!")
-            playsound.playsound('alert.mp3')
+        if clas == "sepeda" or clas == "motor" or clas == "ambulance" or clas == "damkar":
+            clas = "mobil"
+        # if clas == "ambulance" or clas == 'damkar':
+            # alert("Perhatian...! ada "+clas +", silahkan menepi untuk memberi jalan...!")
+            # playsound.playsound('alert.mp3')
 
-        cv2.putText(frame, clas, (x, y), cv2.FONT_HERSHEY_DUPLEX, 2, (0,0,0), 3)
+        cv2.putText(frame, clas, (x, y), cv2.FONT_HERSHEY_DUPLEX, 1, (0,0,0), 2)
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 255), 2)
 
     if cropped_image.any():
-        cv2.imshow('Cars', frame)
+        cv2.namedWindow("window", cv2.WINDOW_GUI_EXPANDED)
+        cv2.setWindowProperty("window",cv2.WINDOW_GUI_EXPANDED,cv2.WINDOW_GUI_EXPANDED)
+        cv2.imshow('window', frame)
+        cv2.setWindowProperty('window', cv2.WND_PROP_TOPMOST, 1)
     if cv2.waitKey(1) == 13:  # 13 is the Enter Key
         break
 
